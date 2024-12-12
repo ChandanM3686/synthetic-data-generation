@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Synthetic Data Generated</title>
+</head>
+<body>
+    <h1>Synthetic Data Generated Successfully!</h1>
+    <a href="{{ url_for('download_file', filename=synthetic_file_path) }}">Download Synthetic Data</a>
+    
+    <h2>Kolmogorov-Smirnov Test Results</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>KS Statistic</th>
+                <th>P-value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feature, result in ks_results.items() %}
+            <tr>
+                <td>{{ feature }}</td>
+                <td>{{ result.statistic }}</td>
+                <td>{{ result.p_value }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
